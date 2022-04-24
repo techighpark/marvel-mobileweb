@@ -1,0 +1,87 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum UserType {
+  basic
+  personal
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  type           UserType
+  name           String
+  avatar         String
+  phone          Int      @unique
+  userNumber     Int      @unique
+  registerPeriod Int
+
+  sizes     Size[]
+  trainer   Trainer? @relation(fields: [trainerId], references: [id])
+  trainerId Int?
+
+  @@index([trainerId])
+}
+
+enum SzieType {
+  weight
+  height
+}
+
+model Size {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  size Float
+  type SzieType
+
+  user User[]
+}
+
+model Trainer {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  name      String
+  avatar    String
+  phone     Int    @unique
+  instagram String @unique
+
+  personals User[]
+  events    Event[]
+}
+
+model ApprovalNumber {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  approvalNumber Int @default(9999)
+}
+
+model Event {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  title       String?
+  description String?
+  photo       String
+  trainer     Trainer @relation(fields: [trainerId], references: [id])
+  trainerId   Int
+
+  @@index([trainerId])
+}
