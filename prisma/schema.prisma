@@ -20,32 +20,31 @@ model User {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  type           UserType
   name           String
-  avatar         String
-  phone          Int      @unique
-  userNumber     Int      @unique
-  registerPeriod Int
+  phone          String   @unique
+  password       String
+  email          String?  @unique
+  avatar         String?
+  birth          String?
+  vehicle        Int?
+  type           UserType @default(basic)
+  registerPeriod Int?
+  userNumber     Int?     @unique
+  height         Float?
 
-  sizes     Size[]
+  weights   Weight[]
   trainer   Trainer? @relation(fields: [trainerId], references: [id])
   trainerId Int?
 
   @@index([trainerId])
 }
 
-enum SzieType {
-  weight
-  height
-}
-
-model Size {
+model Weight {
   id        Int      @id @default(autoincrement())
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  size Float
-  type SzieType
+  weight Float
 
   user User[]
 }
