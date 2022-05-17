@@ -5,7 +5,6 @@ import { useRef, useState, useEffect } from "react";
 import Layout from "@components/layout";
 import { cls, importAll } from "@libs/client/utils";
 import bgimg from "../public/bgimg.jpeg";
-console.log(bgimg);
 
 const Home: NextPage = () => {
   const contentRef = useRef<null | HTMLDivElement[]>([]);
@@ -63,13 +62,10 @@ const Home: NextPage = () => {
           )}
         >
           <Image
-            src={bgImage[0].default.src}
+            src={bgimg}
             layout="fill"
             className="object-cover object-bottom brightness-90 contrast-125"
           />
-        </div>
-        <div className="relative h-40 w-40 border">
-          <Image src={bgimg} layout="fill" />
         </div>
         <div className="relative top-[500px] grid w-full grid-flow-row">
           {[1, 2, 3, 4, 5].map((_, i) => (
