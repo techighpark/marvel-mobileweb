@@ -18,8 +18,7 @@
     "baseUrl": ".",
     "paths": {
       "@libs/*": ["libs/*"],
-      "@components/*": ["components/*"],
-      "@graphql/*": ["graphql/*"]
+      "@components/*": ["components/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
