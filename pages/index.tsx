@@ -32,8 +32,8 @@ const Home: NextPage = () => {
 
   function intersectionCallback(entries: any[], observer: any) {
     entries.forEach(entry => {
-      console.log(entry.target);
       entry.target.classList.toggle("bg-red-500", entry.isIntersecting);
+      entry.target.children[0].classList.toggle("border", entry.isIntersecting);
     });
   }
 
@@ -54,33 +54,31 @@ const Home: NextPage = () => {
 
   return (
     <Layout seoTitle="Home">
-      <div className="relative">
+      <div className="relative pb-[500px]">
         <div
           className={cls(
-            "fixed w-full transition-all duration-500",
+            "fixed -z-50 aspect-square w-full transition-all duration-500",
             imgBlur ? "blur-sm brightness-[0.25] grayscale" : ""
           )}
         >
-          <div className="relative aspect-square w-full ">
-            <Image
-              src={bgImg}
-              layout="fill"
-              className="object-cover object-bottom brightness-90 contrast-125"
-            />
-          </div>
+          <Image
+            src={bgImg}
+            layout="fill"
+            className="object-cover object-bottom brightness-90 contrast-125"
+          />
         </div>
-        <div className="relative top-[700px] grid grid-flow-row">
-          {[1, 2, 3, 4, 5, 6, 7, 8].map((_, i) => (
+        <div className="relative top-[500px] grid w-full grid-flow-row">
+          {[1, 2, 3, 4, 5].map((_, i) => (
             <div
               key={i}
-              className={cls("h-96 border transition-all duration-200")}
+              className="opaciti-0 h-96 transition-all duration-500"
               ref={el => (contentRef.current[i] = el)}
             >
-              <div className="h-40 w-96 bg-neutral-300" />
+              <div className="transition-all duration-[5s]">abc</div>
             </div>
           ))}
         </div>
-        <div className="relative top-[2000px] overflow-hidden bg-black py-20">
+        <div className="relative top-[500px] overflow-hidden py-20">
           <div className="hover:pause grid w-[calc(250px*20)] animate-slider-img grid-flow-col scrollbar-hide">
             {images.map((item: any, index: number) => {
               return (

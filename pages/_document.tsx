@@ -12,7 +12,7 @@ class CustomDocument extends Document {
             rel="stylesheet"
           />
         </Head>
-        <body className=" text-sm text-neutral-900  dark:bg-neutral-900 dark:text-gray-100 md:text-base">
+        <body className="text-sm text-neutral-900  dark:bg-neutral-900 dark:text-gray-100 md:text-base">
           <Main />
           <NextScript />
         </body>

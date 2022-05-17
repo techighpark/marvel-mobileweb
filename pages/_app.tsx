@@ -15,7 +15,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           className: "react-icons",
         }}
       >
-        <ThemeProvider enableSystem={true} attribute="class" clas>
+        <ThemeProvider enableSystem={true} attribute="class">
           <Component {...pageProps} />
         </ThemeProvider>
       </IconContext.Provider>
