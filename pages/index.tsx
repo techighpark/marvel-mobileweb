@@ -5,7 +5,6 @@ import type { NextPage } from "next";
 import Image from "next/image";
 import { useRef, useState } from "react";
 
-import main from "../public/main.jpeg";
 import bgImg from "../public/bgImg.jpeg";
 import { useEffect } from "react";
 
