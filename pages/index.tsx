@@ -1,12 +1,11 @@
 /* eslint-disable jsx-a11y/alt-text */
-import Layout from "@components/layout";
-import { cls, importAll } from "@libs/client/utils";
 import type { NextPage } from "next";
 import Image from "next/image";
-import { useRef, useState } from "react";
-
-import bgImg from "../public/bgImg.jpeg";
-import { useEffect } from "react";
+import { useRef, useState, useEffect } from "react";
+import Layout from "@components/layout";
+import { cls, importAll } from "@libs/client/utils";
+import bgimg from "../public/bgimg.jpeg";
+console.log(bgimg);
 
 const Home: NextPage = () => {
   const contentRef = useRef<null | HTMLDivElement[]>([]);
@@ -14,6 +13,9 @@ const Home: NextPage = () => {
   const [hoverContent, setHoverContent] = useState(null);
   const [imgBlur, setImgBlur] = useState(false);
 
+  const bgImage = importAll(
+    require.context("../public", false, /\.(png|jpeg|svg)$/)
+  );
   const images = importAll(
     require.context("../public/trainers", false, /\.(png|jpeg|svg)$/)
   );
@@ -54,18 +56,21 @@ const Home: NextPage = () => {
   return (
     <Layout seoTitle="Home">
       <div className="relative pb-[500px]">
-        {/* <div
+        <div
           className={cls(
             "fixed -z-50 aspect-square w-full transition-all duration-500",
             imgBlur ? "blur-sm brightness-[0.25] grayscale" : ""
           )}
         >
           <Image
-            src={bgImg}
+            src={bgImage[0].default.src}
             layout="fill"
             className="object-cover object-bottom brightness-90 contrast-125"
           />
-        </div> */}
+        </div>
+        <div className="relative h-40 w-40 border">
+          <Image src={bgimg} layout="fill" />
+        </div>
         <div className="relative top-[500px] grid w-full grid-flow-row">
           {[1, 2, 3, 4, 5].map((_, i) => (
             <div
