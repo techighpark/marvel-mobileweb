@@ -32,8 +32,12 @@ const Home: NextPage = () => {
 
   function intersectionCallback(entries: any[], observer: any) {
     entries.forEach(entry => {
-      entry.target.classList.toggle("bg-red-500", entry.isIntersecting);
-      entry.target.children[0].classList.toggle("border", entry.isIntersecting);
+      entry.target.classList.toggle("bg-neutral-100", entry.isIntersecting);
+      // entry.target.classList.remove("opacity-0", entry.isIntersecting);
+      entry.target.children[0].classList.toggle(
+        "bg-red-500",
+        entry.isIntersecting
+      );
     });
   }
 
@@ -71,10 +75,10 @@ const Home: NextPage = () => {
           {[1, 2, 3, 4, 5].map((_, i) => (
             <div
               key={i}
-              className="opaciti-0 h-96 transition-all duration-500"
+              className="m-10 h-96 rounded-xl bg-neutral-900 transition-all duration-500"
               ref={el => (contentRef.current[i] = el)}
             >
-              <div className="transition-all duration-[5s]">abc</div>
+              <div className="transition-all duration-1000">abc</div>
             </div>
           ))}
         </div>

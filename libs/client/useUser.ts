@@ -14,7 +14,6 @@ interface ProfileResponse {
 
 const useUser = () => {
   const { data, error } = useSWR<ProfileResponse>(`/api/user/me`);
-  console.log(data);
   const router = useRouter();
   useEffect(() => {
     if (data && !data.ok) {

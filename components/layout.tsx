@@ -10,11 +10,11 @@ interface LayoutProps {
 
 const Layout = ({ children, seoTitle }: LayoutProps) => {
   return (
-    <div className="w-full">
+    <div className="h-full w-full">
       <Head>
         <title>Marvel Fitness | {seoTitle}</title>
       </Head>
-      <div className=" fixed left-0 top-0 z-50 flex h-16 w-full items-center justify-between bg-transparent px-4 md:h-20 md:px-6 ">
+      <div className="fixed left-0 top-0 z-50 flex h-16 w-full items-center justify-between bg-transparent px-4 md:h-20 md:px-6 ">
         <div className="">
           <LinkComponent path={"/"}>
             <span className="text-lg font-bold md:text-3xl">
@@ -22,8 +22,7 @@ const Layout = ({ children, seoTitle }: LayoutProps) => {
             </span>
           </LinkComponent>
         </div>
-
-        <div className=" flex items-center justify-end space-x-4">
+        <div className="">
           <LinkComponent path={"/user"}>
             <span className="">
               <svg
@@ -43,7 +42,8 @@ const Layout = ({ children, seoTitle }: LayoutProps) => {
         </div>
       </div>
       <div className="h-full w-full">{children}</div>
-      <footer className="relative inset-x-0 bottom-0 pt-10 pb-4">
+      {/* <div className="h-auto min-h-full"> */}
+      <footer className="relative inset-x-0  pt-10 pb-4">
         <div className="flex items-center justify-center space-x-2 text-xs text-neutral-400 ">
           <span className=" ">Marvel Fitness</span>
           <div className="flex items-center justify-center">
@@ -53,6 +53,7 @@ const Layout = ({ children, seoTitle }: LayoutProps) => {
           <span className="">Privacy & Legal</span>
         </div>
       </footer>
+      {/* </div> */}
     </div>
   );
 };

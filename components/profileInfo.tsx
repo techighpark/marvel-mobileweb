@@ -15,7 +15,7 @@ const ProfileInfo = ({
   need = false,
 }: ProfileInfoProps) => {
   return (
-    <div className="flex justify-center">
+    <div className="flex justify-center rounded-xl bg-neutral-700 p-5 shadow-lg">
       <div className="flex w-full flex-col ">
         <div className="flex items-center pb-2">
           <span className="text-xs font-semibold text-neutral-500 md:text-sm ">
