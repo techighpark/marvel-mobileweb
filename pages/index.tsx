@@ -4,7 +4,6 @@ import Image from "next/image";
 import { useRef, useState, useEffect } from "react";
 import Layout from "@components/layout";
 import { cls, importAll } from "@libs/client/utils";
-import bgimg from "../public/bgimg.jpeg";
 
 const Home: NextPage = () => {
   const contentRef = useRef<null | HTMLDivElement[]>([]);
@@ -12,11 +11,11 @@ const Home: NextPage = () => {
   const [hoverContent, setHoverContent] = useState(null);
   const [imgBlur, setImgBlur] = useState(false);
 
-  const bgImage = importAll(
-    require.context("../public", false, /\.(png|jpeg|svg)$/)
-  );
   const images = importAll(
     require.context("../public/trainers", false, /\.(png|jpeg|svg)$/)
+  );
+  const mainImg = importAll(
+    require.context("../public/main", false, /\.(png|jpeg|svg)$/)
   );
 
   useEffect(() => {
@@ -32,10 +31,9 @@ const Home: NextPage = () => {
 
   function intersectionCallback(entries: any[], observer: any) {
     entries.forEach(entry => {
-      entry.target.classList.toggle("bg-neutral-100", entry.isIntersecting);
-      // entry.target.classList.remove("opacity-0", entry.isIntersecting);
+      entry.target.classList.toggle("bg-neutral-800", entry.isIntersecting);
       entry.target.children[0].classList.toggle(
-        "bg-red-500",
+        "text-blue-500",
         entry.isIntersecting
       );
     });
@@ -66,7 +64,7 @@ const Home: NextPage = () => {
           )}
         >
           <Image
-            src={bgimg}
+            src={mainImg[0]}
             layout="fill"
             className="object-cover object-bottom brightness-90 contrast-125"
           />
@@ -75,10 +73,10 @@ const Home: NextPage = () => {
           {[1, 2, 3, 4, 5].map((_, i) => (
             <div
               key={i}
-              className="m-10 h-96 rounded-xl bg-neutral-900 transition-all duration-500"
+              className="mb-52 h-[600px] transition-all duration-500"
               ref={el => (contentRef.current[i] = el)}
             >
-              <div className="transition-all duration-1000">abc</div>
+              <div className="transition-all duration-[1s]">abc</div>
             </div>
           ))}
         </div>

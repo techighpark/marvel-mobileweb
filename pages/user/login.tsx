@@ -94,7 +94,11 @@ const Login: NextPage = () => {
   return (
     <Layout seoTitle="Log In">
       {signUpComplete ? <ConfirmWindow text="Account Created!" /> : null}
+<<<<<<< HEAD
       <div className="mt-36 flex justify-center px-4 md:mt-52">
+=======
+      <div className="pt-36 flex justify-center px-4 h-[100vh]">
+>>>>>>> eaa583860ff2213d8e8dd0c6e3873bb15c1c6a81
         <div className="flex w-full max-w-sm flex-col items-center">
           <div className="mb-6 grid w-full grid-cols-2 border-b border-neutral-100 md:mb-10 ">
             <div

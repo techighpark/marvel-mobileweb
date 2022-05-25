@@ -10,7 +10,11 @@ interface LayoutProps {
 
 const Layout = ({ children, seoTitle }: LayoutProps) => {
   return (
+<<<<<<< HEAD
     <div className="h-full w-full">
+=======
+    <div className="w-full relative h-[100%]">
+>>>>>>> eaa583860ff2213d8e8dd0c6e3873bb15c1c6a81
       <Head>
         <title>Marvel Fitness | {seoTitle}</title>
       </Head>
@@ -42,8 +46,12 @@ const Layout = ({ children, seoTitle }: LayoutProps) => {
         </div>
       </div>
       <div className="h-full w-full">{children}</div>
+<<<<<<< HEAD
       {/* <div className="h-auto min-h-full"> */}
       <footer className="relative inset-x-0  pt-10 pb-4">
+=======
+      <footer className="absolute inset-x-0 bottom-0 pt-10 pb-4">
+>>>>>>> eaa583860ff2213d8e8dd0c6e3873bb15c1c6a81
         <div className="flex items-center justify-center space-x-2 text-xs text-neutral-400 ">
           <span className=" ">Marvel Fitness</span>
           <div className="flex items-center justify-center">
