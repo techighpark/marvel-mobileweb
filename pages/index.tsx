@@ -53,8 +53,8 @@ const Home: NextPage = () => {
 
   return (
     <Layout seoTitle="Home">
-      <div className="relative pb-[500px]">
-        {/* <div
+      <div className="relative pb-[500px] border">
+        <div
           className={cls(
             "fixed -z-50 aspect-square w-full transition-all duration-500",
             imgBlur ? "blur-sm brightness-[0.25] grayscale" : ""
@@ -65,12 +65,12 @@ const Home: NextPage = () => {
             layout="fill"
             className="object-cover object-bottom brightness-90 contrast-125"
           />
-        </div> */}
+        </div>
         <div className="relative top-[500px] grid w-full grid-flow-row">
           {[1, 2, 3, 4, 5].map((_, i) => (
             <div
               key={i}
-              className="opaciti-0 h-96 transition-all duration-500"
+              className="opaciti-0 h-[800px] mb-52 transition-all duration-500"
               ref={el => (contentRef.current[i] = el)}
             >
               <div className="transition-all duration-[5s]">abc</div>
