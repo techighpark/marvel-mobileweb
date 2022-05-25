@@ -10,7 +10,7 @@ interface LayoutProps {
 
 const Layout = ({ children, seoTitle }: LayoutProps) => {
   return (
-    <div className="w-full border border-red-500 relative h-[100%]">
+    <div className="w-full relative h-[100%]">
       <Head>
         <title>Marvel Fitness | {seoTitle}</title>
       </Head>

@@ -3,10 +3,7 @@ import Layout from "@components/layout";
 import { cls, importAll } from "@libs/client/utils";
 import type { NextPage } from "next";
 import Image from "next/image";
-import { useRef, useState } from "react";
-
-import bgImg from "../public/bgImg.jpeg";
-import { useEffect } from "react";
+import { useRef, useState, useEffect } from "react";
 
 const Home: NextPage = () => {
   const contentRef = useRef<null | HTMLDivElement[]>([]);
@@ -17,6 +14,10 @@ const Home: NextPage = () => {
   const images = importAll(
     require.context("../public/trainers", false, /\.(png|jpeg|svg)$/)
   );
+  const mainImg = importAll(
+    require.context("../public/main", false, /\.(png|jpeg|svg)$/)
+  );
+
 
   useEffect(() => {
     const heightDetect = () => {
@@ -31,8 +32,8 @@ const Home: NextPage = () => {
 
   function intersectionCallback(entries: any[], observer: any) {
     entries.forEach(entry => {
-      entry.target.classList.toggle("bg-red-500", entry.isIntersecting);
-      entry.target.children[0].classList.toggle("border", entry.isIntersecting);
+      entry.target.classList.toggle("bg-neutral-800", entry.isIntersecting);
+      entry.target.children[0].classList.toggle("text-blue-500", entry.isIntersecting);
     });
   }
 
@@ -53,7 +54,7 @@ const Home: NextPage = () => {
 
   return (
     <Layout seoTitle="Home">
-      <div className="relative pb-[500px] border">
+      <div className="relative pb-[500px]">
         <div
           className={cls(
             "fixed -z-50 aspect-square w-full transition-all duration-500",
@@ -61,7 +62,7 @@ const Home: NextPage = () => {
           )}
         >
           <Image
-            src={bgImg}
+            src={mainImg[0]}
             layout="fill"
             className="object-cover object-bottom brightness-90 contrast-125"
           />
@@ -70,10 +71,10 @@ const Home: NextPage = () => {
           {[1, 2, 3, 4, 5].map((_, i) => (
             <div
               key={i}
-              className="opaciti-0 h-[800px] mb-52 transition-all duration-500"
+              className="h-[600px] mb-52 transition-all duration-500"
               ref={el => (contentRef.current[i] = el)}
             >
-              <div className="transition-all duration-[5s]">abc</div>
+              <div className="transition-all duration-[1s]">abc</div>
             </div>
           ))}
         </div>
